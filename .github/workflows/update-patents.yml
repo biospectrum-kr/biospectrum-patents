@@ -1,11 +1,8 @@
 name: Update Patents Data
 
 on:
-  # 매일 오전 10시 (KST) 자동 실행
   schedule:
-    - cron: '0 1 * * *'  # UTC 01:00 = KST 10:00
-  
-  # 수동 실행 가능
+    - cron: '0 1 * * *'
   workflow_dispatch:
 
 jobs:
@@ -16,145 +13,58 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       
-      - name: Setup UTF-8 environment
-        run: |
-          echo "LC_ALL=en_US.UTF-8" >> $GITHUB_ENV
-          echo "LANG=en_US.UTF-8" >> $GITHUB_ENV
-          echo "✅ UTF-8 환경 설정 완료"
-      
       - name: Create data directory
-        run: |
-          mkdir -p data
-          echo "📁 data 폴더 생성"
+        run: mkdir -p data
       
       - name: Download from Google Drive
         env:
           GOOGLE_FILE_ID: ${{ secrets.GOOGLE_FILE_ID }}
         run: |
-          echo "📥 구글 드라이브에서 다운로드 중..."
-          
-          # 구글 드라이브에서 다운로드
           curl -L "https://drive.google.com/uc?export=download&id=${GOOGLE_FILE_ID}" \
-            --output data/patents.json \
-            --silent \
-            --show-error \
-            --fail
+            -o data/patents.json
           
           if [ -f data/patents.json ]; then
-            echo "✅ 다운로드 완료"
-            
-            # 파일 크기 확인
-            FILE_SIZE=$(wc -c < data/patents.json)
-            echo "📄 파일 크기: ${FILE_SIZE} bytes"
-            
-            if [ "$FILE_SIZE" -lt 100 ]; then
-              echo "❌ 파일이 너무 작습니다. 다운로드 실패일 수 있습니다."
+            echo "Download complete"
+            ls -lh data/patents.json
+          else
+            echo "Download failed"
+            exit 1
+          fi
+      
+      - name: Remove BOM
+        run: |
+          if [ -f data/patents.json ]; then
+            sed -i '1s/^\xEF\xBB\xBF//' data/patents.json
+            echo "BOM removed"
+          fi
+      
+      - name: Verify JSON
+        run: |
+          if command -v jq &> /dev/null; then
+            if jq empty data/patents.json 2>/dev/null; then
+              echo "JSON is valid"
+              jq '.domesticReg | length' data/patents.json
+            else
+              echo "JSON is invalid"
               exit 1
             fi
           else
-            echo "❌ 파일 다운로드 실패"
-            exit 1
-          fi
-      
-      - name: Remove BOM if exists
-        run: |
-          if [ -f data/patents.json ]; then
-            # UTF-8 BOM 제거 (0xEF 0xBB 0xBF)
-            sed -i '1s/^\xEF\xBB\xBF//' data/patents.json
-            echo "✅ BOM 제거 완료"
-          fi
-      
-      - name: Verify JSON format and Korean text
-        run: |
-          echo "🔍 JSON 형식 검증 중..."
-          
-          # jq 설치 확인
-          if ! command -v jq &> /dev/null; then
-            echo "jq 설치 중..."
+            echo "jq not found, installing..."
             sudo apt-get update -qq
             sudo apt-get install -y jq
-          fi
-          
-          # JSON 유효성 검사
-          if jq empty data/patents.json 2>/dev/null; then
-            echo "✅ JSON 형식 정상"
-            
-            # 데이터 개수 확인
-            DOMESTIC_COUNT=$(jq '.domesticReg | length' data/patents.json)
-            INTERNATIONAL_COUNT=$(jq '.internationalReg | length' data/patents.json)
-            echo "📊 국내 특허: ${DOMESTIC_COUNT}건"
-            echo "📊 해외 특허: ${INTERNATIONAL_COUNT}건"
-            
-            # 한글 인코딩 확인
-            if grep -q "특허" data/patents.json || grep -q "등록" data/patents.json; then
-              echo "✅ 한글 인코딩 정상"
-            else
-              echo "⚠️ 한글이 포함되지 않았거나 인코딩 문제 가능성"
-              # 첫 10줄 출력 (디버깅용)
-              echo "파일 내용 미리보기:"
-              head -n 10 data/patents.json
-            fi
-            
-            # 첫 번째 특허 제목 출력 (확인용)
-            FIRST_TITLE=$(jq -r '.domesticReg[0].title // "없음"' data/patents.json)
-            echo "📄 첫 번째 특허: ${FIRST_TITLE}"
-            
-          else
-            echo "❌ JSON 형식 오류"
-            echo "파일 내용:"
-            cat data/patents.json
-            exit 1
+            jq empty data/patents.json
           fi
       
-      - name: Commit and push if changed
+      - name: Commit changes
         run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          
-          # 변경사항 추가
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
           git add data/patents.json
           
-          # 변경사항 확인
           if git diff --staged --quiet; then
-            echo "📭 변경사항 없음 - 커밋 생략"
+            echo "No changes"
           else
-            # 현재 시간 (KST)
-            COMMIT_TIME=$(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M:%S')
-            
-            # 커밋 메시지에 통계 포함
-            DOMESTIC_COUNT=$(jq '.domesticReg | length' data/patents.json)
-            INTERNATIONAL_COUNT=$(jq '.internationalReg | length' data/patents.json)
-            
-            git commit -m "🔄 Update patents data
-
-📊 국내: ${DOMESTIC_COUNT}건 | 해외: ${INTERNATIONAL_COUNT}건
-🕐 업데이트: ${COMMIT_TIME} KST"
-            
+            git commit -m "Update patents data"
             git push
-            echo "✅ GitHub에 업데이트 완료!"
+            echo "Update complete"
           fi
-      
-      - name: Summary
-        if: always()
-        run: |
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          echo "📋 작업 완료 요약"
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          
-          if [ -f data/patents.json ]; then
-            DOMESTIC_COUNT=$(jq '.domesticReg | length' data/patents.json 2>/dev/null || echo "0")
-            INTERNATIONAL_COUNT=$(jq '.internationalReg | length' data/patents.json 2>/dev/null || echo "0")
-            LAST_UPDATED=$(jq -r '.lastUpdated // "알 수 없음"' data/patents.json 2>/dev/null || echo "알 수 없음")
-            
-            echo "✅ 파일: data/patents.json"
-            echo "📊 국내 특허: ${DOMESTIC_COUNT}건"
-            echo "📊 해외 특허: ${INTERNATIONAL_COUNT}건"
-            echo "🕐 마지막 업데이트: ${LAST_UPDATED}"
-            echo ""
-            echo "🌐 Raw URL:"
-            echo "https://raw.githubusercontent.com/biospectrum-kr/biospectrum-patents/main/data/patents.json"
-          else
-            echo "❌ 파일 생성 실패"
-          fi
-          
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
