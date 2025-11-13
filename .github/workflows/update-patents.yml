@@ -1,5 +1,8 @@
 name: Update Patents Data
 
+permissions:
+  contents: write
+
 on:
   schedule:
     - cron: '0 1 * * *'
@@ -12,7 +15,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      
+        with:
+          fetch-depth: 0   # 🔥전체 히스토리 가져오기 (충돌 방지)
+
       - name: Create data directory
         run: mkdir -p data
       
@@ -54,17 +59,21 @@ jobs:
             sudo apt-get install -y jq
             jq empty data/patents.json
           fi
-      
-      - name: Commit changes
+
+      - name: Commit & Push changes
         run: |
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
-          git add data/patents.json
           
+          git add data/patents.json
+
           if git diff --staged --quiet; then
             echo "No changes"
           else
+            echo "Pull latest before pushing"
+            git pull origin main --rebase   # 🔥 충돌 방지 핵심
+
             git commit -m "Update patents data"
-            git push
+            git push origin main            # 🔥 안전하게 push
             echo "Update complete"
           fi
