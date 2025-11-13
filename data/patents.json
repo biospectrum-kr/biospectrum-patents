@@ -1273,36 +1273,6 @@
   ],
   "internationalReg": [
     {
-      "year": "2025",
-      "no": "20",
-      "title": "Composition containing Cirsium japonica extract as active ingredient for stimulating melanogenesis",
-      "number": "US12303588 B2\n (USA)",
-      "registrationDate": "2025.05.20",
-      "ingredients": "엉겅퀴",
-      "relatedProducts": "Darkui",
-      "country": "미국"
-    },
-    {
-      "year": "2025",
-      "no": "21",
-      "title": "Composition for preventing hair loss or promoting hair growth comprising milk thistle flower extract as an active ingredient",
-      "number": "US12409200B2\n (USA)",
-      "registrationDate": "2025.09.09",
-      "ingredients": "밀크시슬",
-      "relatedProducts": "MilkMo",
-      "country": "미국"
-    },
-    {
-      "year": "2024",
-      "no": "19",
-      "title": "Callus lysate comprising high content of callus metabolite and preparation method thereof",
-      "number": "11975095 (USA)",
-      "registrationDate": "2024.05.07",
-      "ingredients": "캘러스캡슐(용도)",
-      "relatedProducts": "",
-      "country": "미국"
-    },
-    {
       "year": "2023",
       "no": "18",
       "title": "Callus lysate comprising high content of callus metabolite and preparation method thereof",
@@ -1463,5 +1433,5 @@
       "country": "일본"
     }
   ],
-  "lastUpdated": "2025-11-13T03:52:26.687Z"
+  "lastUpdated": "2025-11-13T04:01:29.682Z"
 }
