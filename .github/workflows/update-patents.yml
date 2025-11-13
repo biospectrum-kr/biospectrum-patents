@@ -1,35 +1,21 @@
 name: Update Patents Data
 
-permissions:
-  contents: write   # 🔥 GitHub Actions가 push 할 수 있게 하는 핵심 설정
-
 on:
   schedule:
-    - cron: '0 1 * * *'   # 매일 10시 (KST: +9)
-  workflow_dispatch:      # 수동 실행 허용
+    - cron: '0 1 * * *'
+  workflow_dispatch:
 
 jobs:
   update-patents:
     runs-on: ubuntu-latest
     
     steps:
-      # --------------------------------------
-      # 1. 전체 히스토리를 가져와야 push/pull 가능
-      # --------------------------------------
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0   # 🔥 Fast-forward, rebase, merge 모두 가능해짐
-
-      # --------------------------------------
-      # 2. 데이터 폴더 생성
-      # --------------------------------------
+      
       - name: Create data directory
         run: mkdir -p data
       
-      # --------------------------------------
-      # 3. Google Drive에서 파일 다운로드
-      # --------------------------------------
       - name: Download from Google Drive
         env:
           GOOGLE_FILE_ID: ${{ secrets.GOOGLE_FILE_ID }}
@@ -45,9 +31,6 @@ jobs:
             exit 1
           fi
       
-      # --------------------------------------
-      # 4. BOM 제거 (있으면)
-      # --------------------------------------
       - name: Remove BOM
         run: |
           if [ -f data/patents.json ]; then
@@ -55,9 +38,6 @@ jobs:
             echo "BOM removed"
           fi
       
-      # --------------------------------------
-      # 5. JSON 유효성 검사
-      # --------------------------------------
       - name: Verify JSON
         run: |
           if command -v jq &> /dev/null; then
@@ -74,29 +54,17 @@ jobs:
             sudo apt-get install -y jq
             jq empty data/patents.json
           fi
-
-# --------------------------------------
-# 6. Commit & Push (충돌 안 나게 rebase)
-# --------------------------------------
-- name: Commit & Push changes
-  run: |
-    git config user.email "github-actions[bot]@users.noreply.github.com"
-    git config user.name "github-actions[bot]"
-    
-    git add data/patents.json
-
-    # 변경이 없는지 체크
-    if git diff --staged --quiet; then
-      echo "No changes"
-    else
-      echo "Committing..."
-      git commit -m "Update patents data"
-
-      echo "Pulling latest changes to prevent conflicts..."
-      git pull origin main --rebase   # ✅ commit 후 실행됨
-
-      echo "Pushing..."
-      git push origin main
-      echo "✅ Update complete"
-    fi
-
+      
+      - name: Commit changes
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add data/patents.json
+          
+          if git diff --staged --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Update patents data"
+            git push
+            echo "Update complete"
+          fi
