@@ -1,4 +1,4 @@
-{
+﻿{
   "domesticReg": [
     {
       "year": "2025",
@@ -68,16 +68,6 @@
       "registrationDate": "2025.7.4",
       "ingredients": "톳열수_알긴산제거_에탄올 상등액",
       "relatedProducts": "Toitron",
-      "country": "국내등록"
-    },
-    {
-      "year": "2025",
-      "no": "126",
-      "title": "발효 보리종자 추출물을 포함하는 세포노화 관련 질환 예방 또는 치료용 조성물",
-      "number": "10-2857817-0000",
-      "registrationDate": "2025.9.5",
-      "ingredients": "",
-      "relatedProducts": "",
       "country": "국내등록"
     },
     {
@@ -1242,16 +1232,6 @@
     },
     {
       "year": "2007",
-      "no": "1",
-      "title": "생리활성 성분 Rb1, Rb2, Rc 및 Rd의 함량이 증가된 인삼 추출물의 제조방법",
-      "number": "10-0762965-0000",
-      "registrationDate": "2007.9.21",
-      "ingredients": "Rb1, Rb2, Rc, Rd",
-      "relatedProducts": "",
-      "country": "국내등록"
-    },
-    {
-      "year": "2007",
       "no": "2",
       "title": "복합천연방부제",
       "number": "10-0782599-0000",
@@ -1267,6 +1247,26 @@
       "number": "10-0782600-0000",
       "registrationDate": "2007.11.29",
       "ingredients": "디오스게닌, 디오신",
+      "relatedProducts": "",
+      "country": "국내등록"
+    },
+    {
+      "year": "",
+      "no": "1",
+      "title": "생리활성 성분 Rb1, Rb2, Rc 및 Rd의 함량이 증가된 인삼 추출물의 제조방법",
+      "number": "10-0762965-0000",
+      "registrationDate": "Fri Sep 21 2007 00:00:00 GMT+0900 (Korean Standard Time)",
+      "ingredients": "Rb1, Rb2, Rc, Rd",
+      "relatedProducts": "",
+      "country": "국내등록"
+    },
+    {
+      "year": "",
+      "no": "126",
+      "title": "발효 보리종자 추출물을 포함하는 세포노화 관련 질환 예방 또는 치료용 조성물",
+      "number": "10-2857817-0000",
+      "registrationDate": "Fri Sep 05 2025 00:00:00 GMT+0900 (Korean Standard Time)",
+      "ingredients": "",
       "relatedProducts": "",
       "country": "국내등록"
     }
@@ -1463,5 +1463,5 @@
       "country": "일본"
     }
   ],
-  "lastUpdated": "2025-11-13T01:57:37.413Z"
+  "lastUpdated": "2025-11-13T02:57:38.116Z"
 }
