@@ -78,25 +78,24 @@ jobs:
       # --------------------------------------
       # 6. Commit & Push (충돌 안 나게 rebase)
       # --------------------------------------
-      - name: Commit & Push changes
-        run: |
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git config user.name "github-actions[bot]"
-          
-          git add data/patents.json
+- name: Commit & Push changes
+  run: |
+    git config user.email "github-actions[bot]@users.noreply.github.com"
+    git config user.name "github-actions[bot]"
 
-          # 변경이 없는지 체크
-          if git diff --staged --quiet; then
-            echo "No changes"
-          else
-            echo "Pulling latest changes to prevent conflicts..."
-            git pull origin main --rebase   # 🔥 충돌 방지 핵심
+    git add data/patents.json
 
-            echo "Committing..."
-            git commit -m "Update patents data"
+    # 변경이 있는 경우만 커밋
+    if git diff --staged --quiet; then
+      echo "No changes"
+    else
+      echo "Committing..."
+      git commit -m "Update patents data"
 
-            echo "Pushing..."
-            git push origin main
-            
-            echo "Update complete"
-          fi
+      echo "Pulling latest changes to prevent conflicts..."
+      git pull origin main --rebase   # ✅ 이제 commit 후에 실행됨
+
+      echo "Pushing..."
+      git push origin main
+      echo "✅ Update complete"
+    fi
