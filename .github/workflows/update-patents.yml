@@ -75,17 +75,17 @@ jobs:
             jq empty data/patents.json
           fi
 
-      # --------------------------------------
-      # 6. Commit & Push (충돌 안 나게 rebase)
-      # --------------------------------------
+# --------------------------------------
+# 6. Commit & Push (충돌 안 나게 rebase)
+# --------------------------------------
 - name: Commit & Push changes
   run: |
     git config user.email "github-actions[bot]@users.noreply.github.com"
     git config user.name "github-actions[bot]"
-
+    
     git add data/patents.json
 
-    # 변경이 있는 경우만 커밋
+    # 변경이 없는지 체크
     if git diff --staged --quiet; then
       echo "No changes"
     else
@@ -93,9 +93,10 @@ jobs:
       git commit -m "Update patents data"
 
       echo "Pulling latest changes to prevent conflicts..."
-      git pull origin main --rebase   # ✅ 이제 commit 후에 실행됨
+      git pull origin main --rebase   # ✅ commit 후 실행됨
 
       echo "Pushing..."
       git push origin main
       echo "✅ Update complete"
     fi
+
