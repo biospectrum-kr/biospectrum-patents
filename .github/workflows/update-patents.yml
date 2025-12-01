@@ -1,70 +1,91 @@
-name: Update Patents Data
+name: Update Patents & Papers Data
+
+permissions:
+  contents: write   # GitHub Actions가 repo에 push 가능하도록 설정
 
 on:
   schedule:
-    - cron: '0 1 * * *'
-  workflow_dispatch:
+    - cron: '0 1 * * *'     # 매일 오전 10시 (KST)
+  workflow_dispatch:        # 수동 실행 허용
 
 jobs:
-  update-patents:
+  update-data:
     runs-on: ubuntu-latest
-    
+
     steps:
+      # --------------------------------------
+      # 1. Repo 체크아웃
+      # --------------------------------------
       - name: Checkout repository
         uses: actions/checkout@v4
-      
+        with:
+          fetch-depth: 0
+
+      # --------------------------------------
+      # 2. data 디렉토리 생성
+      # --------------------------------------
       - name: Create data directory
         run: mkdir -p data
-      
-      - name: Download from Google Drive
+
+      # --------------------------------------
+      # 3. Google Drive → patents.json 다운로드
+      # --------------------------------------
+      - name: Download patents.json from Google Drive
         env:
-          GOOGLE_FILE_ID: ${{ secrets.GOOGLE_FILE_ID }}
+          GOOGLE_PATENTS_ID: ${{ secrets.GOOGLE_PATENTS_ID }}
         run: |
-          curl -L "https://drive.google.com/uc?export=download&id=${GOOGLE_FILE_ID}" \
-            -o data/patents.json
-          
-          if [ -f data/patents.json ]; then
-            echo "Download complete"
-            ls -lh data/patents.json
-          else
-            echo "Download failed"
-            exit 1
-          fi
-      
-      - name: Remove BOM
+          echo "Downloading patents.json..."
+          curl -L -o data/patents.json "https://drive.google.com/uc?export=download&id=${GOOGLE_PATENTS_ID}"
+
+      # --------------------------------------
+      # 4. Google Drive → papers.json 다운로드
+      # --------------------------------------
+      - name: Download papers.json from Google Drive
+        env:
+          GOOGLE_PAPERS_ID: ${{ secrets.GOOGLE_PAPERS_ID }}
         run: |
-          if [ -f data/patents.json ]; then
-            sed -i '1s/^\xEF\xBB\xBF//' data/patents.json
-            echo "BOM removed"
-          fi
-      
-      - name: Verify JSON
+          echo "Downloading papers.json..."
+          curl -L -o data/papers.json "https://drive.google.com/uc?export=download&id=${GOOGLE_PAPERS_ID}"
+
+      # --------------------------------------
+      # 5. BOM 제거
+      # --------------------------------------
+      - name: Remove BOM if exists
         run: |
-          if command -v jq &> /dev/null; then
-            if jq empty data/patents.json 2>/dev/null; then
-              echo "JSON is valid"
-              jq '.domesticReg | length' data/patents.json
-            else
-              echo "JSON is invalid"
-              exit 1
-            fi
-          else
-            echo "jq not found, installing..."
-            sudo apt-get update -qq
+          sed -i '1s/^\xEF\xBB\xBF//' data/patents.json || true
+          sed -i '1s/^\xEF\xBB\xBF//' data/papers.json || true
+
+      # --------------------------------------
+      # 6. JSON 유효성 검사
+      # --------------------------------------
+      - name: Validate JSON files
+        run: |
+          if ! command -v jq &> /dev/null; then
+            sudo apt-get update
             sudo apt-get install -y jq
-            jq empty data/patents.json
           fi
-      
-      - name: Commit changes
+
+          echo "Validating patents.json..."
+          jq empty data/patents.json
+
+          echo "Validating papers.json..."
+          jq empty data/papers.json
+
+      # --------------------------------------
+      # 7. Commit & Push
+      # --------------------------------------
+      - name: Commit & Push changes
         run: |
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
-          git add data/patents.json
           
+          git add data/patents.json
+          git add data/papers.json
+
           if git diff --staged --quiet; then
-            echo "No changes"
+            echo "No changes to commit"
           else
-            git commit -m "Update patents data"
+            git commit -m "Auto-update patents & papers data"
             git push
             echo "Update complete"
           fi
