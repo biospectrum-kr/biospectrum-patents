@@ -6,11 +6,6 @@
       "year": "2025"
     },
     {
-      "title": "질 건강에 대한 Lactobacillus rhamnosus BS-Pro-8의 기능적 효과",
-      "journal": "Korean Society for Biotechnology and Bioengineering Journal 2025; 40(4): 373-381",
-      "year": "2025"
-    },
-    {
       "title": "Assessment of the anti-hair loss potential of Camellia japonica fruit shell extract in vitro.",
       "journal": "Int J Cosmet Sci. 2023, 00:1 11.",
       "year": "2023"
@@ -588,6 +583,11 @@
   ],
   "nonscie": [
     {
+      "title": "질 건강에 대한 Lactobacillus rhamnosus BS-Pro-8의 기능적 효과",
+      "journal": "Korean Society for Biotechnology and Bioengineering Journal 2025; 40(4): 373-381",
+      "year": "2025"
+    },
+    {
       "title": "Study on the Properties of Lagerstroemia indica Extract as an Anti-acne Cosmetic Material.",
       "journal": "J Soc Cosmet Sci. Korea. 2024, 50(1):19-27.",
       "year": "2024"
@@ -815,5 +815,5 @@
       "year": "2009"
     }
   ],
-  "lastUpdated": "2026-01-05T06:56:31.614Z"
+  "lastUpdated": "2026-01-05T07:30:50.137Z"
 }
