@@ -58,7 +58,7 @@
       "applicationNumber": "1020210099020",
       "registrationDate": "2025.03.28",
       "ingredients": "캘러스 파쇄물",
-      "relatedProducts": ""
+      "relatedProducts": "AppleCell (L), EdelCell (L), VitexCell (L), JasmineCell(L), VinuCell"
     },
     {
       "year": "2025",
@@ -1269,14 +1269,64 @@
       "registrationDate": "2007.11.29",
       "ingredients": "디오스게닌, 디오신",
       "relatedProducts": ""
+    },
+    {
+      "year": "01",
+      "no": "128",
+      "title": "고소리술 술지게미 추출물을 포함하는 항노화용 조성물",
+      "number": "10-2897735-0000",
+      "applicationNumber": "",
+      "registrationDate": "01.Dec.2025",
+      "ingredients": "고소리술 술지게미",
+      "relatedProducts": "Gosori"
     }
   ],
   "internationalReg": [
     {
-      "year": "2023",
-      "no": "18",
+      "year": "2025",
+      "no": "16",
+      "title": "Composition containing Cirsium japonica extract as active ingredient for stimulating melanogenesis",
+      "number": "US 12303588  (USA)",
+      "registrationDate": "2025.05.20",
+      "ingredients": "엉겅퀴",
+      "relatedProducts": "Darkui",
+      "country": "미국"
+    },
+    {
+      "year": "2025",
+      "no": "17",
+      "title": "Composition for preventing hair loss or promoting hair growth comprising milk thistle flower extract as an active ingredient",
+      "number": "US 12409200 (USA)",
+      "registrationDate": "2025.08.09",
+      "ingredients": "밀크시슬",
+      "relatedProducts": "MilkMo",
+      "country": "미국"
+    },
+    {
+      "year": "2025",
+      "no": "21",
+      "title": "Composition for preventing, alleviating, or treating inflammatory disease containing isookanin or salt thereof as active ingredient",
+      "number": "US 12502374 (USA)",
+      "registrationDate": "2025.12.23",
+      "ingredients": "이소오카닌_염증질환개선",
+      "relatedProducts": "",
+      "country": "미국"
+    },
+    {
+      "year": "2024",
+      "no": "20",
       "title": "Callus lysate comprising high content of callus metabolite and preparation method thereof",
-      "number": "3117034 (France)",
+      "number": "US 11975095 (USA)",
+      "registrationDate": "2024.05.07",
+      "ingredients": "캘러스_캡슐화",
+      "relatedProducts": "",
+      "country": "미국"
+    },
+    {
+      "year": "2023",
+      "no": "19",
+      "title": "Callus lysate comprising high content of callus metabolite and preparation method thereof",
+      "number": "FR 3117034 (France)",
       "registrationDate": "2023.05.28",
       "ingredients": "캘러스_캡슐화",
       "relatedProducts": "",
@@ -1284,29 +1334,19 @@
     },
     {
       "year": "2022",
-      "no": "17",
+      "no": "18",
       "title": "Callus lysate comprising high content of callus metabolite and preparation method thereof",
-      "number": "JP 7129105\n (Japan)",
+      "number": "JP 7129105  (Japan)",
       "registrationDate": "2022.08.24",
       "ingredients": "캘러스_캡슐화",
-      "relatedProducts": "",
+      "relatedProducts": "AppleCell (L), EdelCell (L), VitexCell (L), JasmineCell(L), VinuCell",
       "country": "일본"
     },
     {
       "year": "2021",
       "no": "15",
-      "title": "Composition for Improving Skin Conditions Comprising Andrographis paniculata Extract or andrographolide or salts thereof.",
-      "number": "ZL2014800002560\n (China)",
-      "registrationDate": "2021.08.10",
-      "ingredients": "천심련",
-      "relatedProducts": "LotuStem",
-      "country": "중국"
-    },
-    {
-      "year": "2021",
-      "no": "16",
       "title": "A composition for promoting melanin synthesis comprising Cirsium japonicum extract",
-      "number": "JP 6921440\n (Japan)",
+      "number": "JP 6921440 (Japan)",
       "registrationDate": "2021.07.30",
       "ingredients": "엉겅퀴",
       "relatedProducts": "Darkui",
@@ -1314,31 +1354,29 @@
     },
     {
       "year": "2018",
-      "no": "3,4",
+      "no": "3",
       "title": "Compositions for Improving Skin Conditions Comprising α-Bisabolol as an Active Ingredient.",
-      "number": "EP 2124872\n >Germany, France",
+      "number": "EP 2124872 B1 (FR)",
       "registrationDate": "2018.06.06",
       "ingredients": "",
       "relatedProducts": "",
-      "country": "프랑스",
-      "mainRegion": "유럽"
+      "country": "프랑스"
     },
     {
       "year": "2018",
-      "no": "3,4",
+      "no": "4",
       "title": "Compositions for Improving Skin Conditions Comprising α-Bisabolol as an Active Ingredient.",
-      "number": "EP 2124872\n >Germany, France",
+      "number": "EP 2124872 B1 (DE)",
       "registrationDate": "2018.06.06",
       "ingredients": "",
       "relatedProducts": "",
-      "country": "독일",
-      "mainRegion": "유럽"
+      "country": "독일"
     },
     {
       "year": "2018",
       "no": "10",
       "title": "Compositions for improving skin conditions comprising veratric acid or acceptable salt thereof as an active ingredient.",
-      "number": "ZL201380052911.2\n (China)",
+      "number": "CN 104717957 (China)",
       "registrationDate": "2018.06.29",
       "ingredients": "",
       "relatedProducts": "",
@@ -1346,31 +1384,29 @@
     },
     {
       "year": "2018",
-      "no": "12,13",
+      "no": "12",
       "title": "Composition for ameliorating inflammation comprising unripe Citrus unshiu extract or synephrine or salts thereof",
-      "number": "EP 3017822 B1\n >Germany, France",
+      "number": "EP 3017822 B1 (FR)",
       "registrationDate": "2018.07.05",
       "ingredients": "",
       "relatedProducts": "",
-      "country": "프랑스",
-      "mainRegion": "유럽"
+      "country": "프랑스"
     },
     {
       "year": "2018",
-      "no": "12,13",
+      "no": "13",
       "title": "Composition for ameliorating inflammation comprising unripe Citrus unshiu extract or synephrine or salts thereof",
-      "number": "EP 3017822 B1\n >Germany, France",
+      "number": "EP 3017822 (DE)",
       "registrationDate": "2018.07.05",
       "ingredients": "",
       "relatedProducts": "",
-      "country": "독일",
-      "mainRegion": "유럽"
+      "country": "독일"
     },
     {
       "year": "2018",
       "no": "14",
       "title": "Composition for ameliorating inflammation comprising unripe Citrus unshiu extract or synephrine or salts thereof",
-      "number": "US10130670 B2\n (USA)",
+      "number": "US 10130670 (USA)",
       "registrationDate": "2018.11.20",
       "ingredients": "",
       "relatedProducts": "",
@@ -1380,7 +1416,7 @@
       "year": "2017",
       "no": "9",
       "title": "Compositions for improving skin conditions comprising veratric acid or acceptable salt thereof as an active ingredient.",
-      "number": "US9730872 B2\n (USA)",
+      "number": "US 9730872 (USA)",
       "registrationDate": "2017.08.15",
       "ingredients": "",
       "relatedProducts": "",
@@ -1390,7 +1426,7 @@
       "year": "2017",
       "no": "11",
       "title": "Composition for ameliorating inflammation comprising unripe Citrus unshiu extract or synephrine or salts thereof",
-      "number": "ZL201480038021.0\n (China)",
+      "number": "CN 105358170 (China)",
       "registrationDate": "2017.12.08",
       "ingredients": "감귤미숙과, 시네프린",
       "relatedProducts": "Eosidin",
@@ -1400,7 +1436,7 @@
       "year": "2016",
       "no": "8",
       "title": "Compositions for improving skin conditions comprising veratric acid or acceptable salt thereof as an active ingredient.",
-      "number": "6004599\n (Japan)",
+      "number": "JP 6004599 (Japan)",
       "registrationDate": "2016.09.16",
       "ingredients": "베라트릭산",
       "relatedProducts": "Vagestop",
@@ -1410,7 +1446,7 @@
       "year": "2013",
       "no": "7",
       "title": "Composition for skin whitening containing Platycodin D.",
-      "number": "ZL200980100941.X\n (China)",
+      "number": "CN101854909 (China)",
       "registrationDate": "2013.05.01",
       "ingredients": "플라티코딘D",
       "relatedProducts": "Placodyn",
@@ -1420,7 +1456,7 @@
       "year": "2012",
       "no": "6",
       "title": "Compositions for improving skin conditions comprising matrine or its oxidized derivatives.",
-      "number": "ZL200880009614.9\n (China)",
+      "number": "CN101641081 (China)",
       "registrationDate": "2012.07.04",
       "ingredients": "마트린,옥시마트린",
       "relatedProducts": "MateSol",
@@ -1430,7 +1466,7 @@
       "year": "2011",
       "no": "5",
       "title": "A composition comprising compounds of natural origin for damaged skin.",
-      "number": "US7994141 B2\n (USA)",
+      "number": "US 7994141 (USA)",
       "registrationDate": "2011.08.09",
       "ingredients": "",
       "relatedProducts": "BSASM",
@@ -1440,7 +1476,7 @@
       "year": "2010",
       "no": "2",
       "title": "Compositions for Improving Skin Conditions Comprising α-Bisabolol as an Active Ingredient.",
-      "number": "ZL200880006159.7\n (China)",
+      "number": "CN 101677925 (China)",
       "registrationDate": "2010.07.04",
       "ingredients": "",
       "relatedProducts": "",
@@ -1450,12 +1486,12 @@
       "year": "2008",
       "no": "1",
       "title": "Compositions for Improving Skin Conditions Comprising α-Bisabolol as an Active Ingredient.",
-      "number": "4482060\n (Japan)",
+      "number": "JP 4482060 (Japan)",
       "registrationDate": "2008.01.27",
       "ingredients": "α-Bisabolol",
       "relatedProducts": "Alpha-Melight 시리즈",
       "country": "일본"
     }
   ],
-  "lastUpdated": "2026-01-05T02:09:27.784Z"
+  "lastUpdated": "2026-03-04T08:27:56.738Z"
 }
