@@ -91,6 +91,16 @@
       "relatedProducts": "Willex"
     },
     {
+      "year": "2025",
+      "no": "128",
+      "title": "고소리술 술지게미 추출물을 포함하는 항노화용 조성물",
+      "number": "10-2897735-0000",
+      "applicationNumber": "",
+      "registrationDate": "2025.12.01",
+      "ingredients": "고소리술 술지게미",
+      "relatedProducts": "Gosori"
+    },
+    {
       "year": "2024",
       "no": "117",
       "title": "꽃송이버섯 추출물을 유효성분으로 포함하는 일주기 리듬 장애 예방 또는 개선을 위한 조성물",
@@ -1269,16 +1279,6 @@
       "registrationDate": "2007.11.29",
       "ingredients": "디오스게닌, 디오신",
       "relatedProducts": ""
-    },
-    {
-      "year": "01",
-      "no": "128",
-      "title": "고소리술 술지게미 추출물을 포함하는 항노화용 조성물",
-      "number": "10-2897735-0000",
-      "applicationNumber": "",
-      "registrationDate": "01.Dec.2025",
-      "ingredients": "고소리술 술지게미",
-      "relatedProducts": "Gosori"
     }
   ],
   "internationalReg": [
@@ -1493,5 +1493,5 @@
       "country": "일본"
     }
   ],
-  "lastUpdated": "2026-03-04T23:42:42.556Z"
+  "lastUpdated": "2026-03-05T00:00:19.445Z"
 }
