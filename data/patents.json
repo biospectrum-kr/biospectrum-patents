@@ -1,5 +1,36 @@
 ﻿{
-  "domesticReg": [],
+  "domesticReg": [
+    {
+      "year": "21",
+      "no": "3",
+      "title": "생리활성 성분 Rb1, Rb2, Rc 및 Rd의 함량이 증가된 인삼 추출물의 제조방법",
+      "number": "10-0762965-0000",
+      "applicationNumber": "",
+      "registrationDate": "21.Sep.2007",
+      "ingredients": "Rb1, Rb2, Rc, Rd",
+      "relatedProducts": ""
+    },
+    {
+      "year": "14",
+      "no": "2",
+      "title": "천연 식물 추출물을 포함하는 항염 조성물",
+      "number": "10-1009904-0000",
+      "applicationNumber": "",
+      "registrationDate": "14.Jan.2011",
+      "ingredients": "개나리, 고추잎, 박하, 뱀딸기, 뽕나무, 삼백초, 소나무, 약쑥, 양대줄기, 어성초, 왕벗꽃나무, 조릿대",
+      "relatedProducts": ""
+    },
+    {
+      "year": "08",
+      "no": "1",
+      "title": "두릅나무 에탄올 추출물을 유효성분으로 포함하는 피부 주름개선용 화장료 조성물",
+      "number": "10-0829832-0000",
+      "applicationNumber": "",
+      "registrationDate": "08.May.2008",
+      "ingredients": "개나리, 고사리, 두릅나무, 미나리, 박하, 부추, 어성초, 영산홍꽃, 오이풀뿌리, 옥수수엽, 완두콩, 유채, 조릿대, 포공영",
+      "relatedProducts": "Jeju Aralia"
+    }
+  ],
   "internationalReg": [],
-  "lastUpdated": "2026-05-12T08:20:43.709Z"
+  "lastUpdated": "2026-05-12T08:21:50.857Z"
 }
