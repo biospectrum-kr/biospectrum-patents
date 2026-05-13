@@ -1,16 +1,6 @@
 ﻿{
   "domesticReg": [
     {
-      "year": "Unknown",
-      "no": "48",
-      "title": "천연추출물 또는 이로부터 단리된 화합물을 포함하는 동물세포 배양용 무혈청 배지 및 피부개선 조성물",
-      "number": "10-1245554-0000",
-      "applicationNumber": "",
-      "registrationDate": "14Mar.2013",
-      "ingredients": "오가피",
-      "relatedProducts": "Naxow, Acrow"
-    },
-    {
       "year": "5",
       "no": "44",
       "title": "진센노사이드 알지3을 함유하는 피부미백용 조성물",
@@ -559,6 +549,16 @@
       "registrationDate": "14.Mar.2013",
       "ingredients": "스티그마스테롤(엉겅퀴)",
       "relatedProducts": "Cirex"
+    },
+    {
+      "year": "14",
+      "no": "48",
+      "title": "천연추출물 또는 이로부터 단리된 화합물을 포함하는 동물세포 배양용 무혈청 배지 및 피부개선 조성물",
+      "number": "10-1245554-0000",
+      "applicationNumber": "",
+      "registrationDate": "14.Mar.2013",
+      "ingredients": "오가피",
+      "relatedProducts": "Naxow, Acrow"
     },
     {
       "year": "14",
@@ -1513,5 +1513,5 @@
       "country": "중국"
     }
   ],
-  "lastUpdated": "2026-05-13T00:06:43.144Z"
+  "lastUpdated": "2026-05-13T00:09:43.117Z"
 }
